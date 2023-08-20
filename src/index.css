@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  @apply h-[100dvh] bg-black;
+}
+
+.container {
+  @apply flex justify-center items-center h-full flex-col bg-black md:bg-transparent mx-auto lg:w-1/2 xl:w-1/3 select-none;
+}
+
+.result {
+  @apply bg-black w-full text-white px-5 text-right cursor-pointer xl:rounded-t-2xl transition-all duration-500 ease-in-out h-auto max-w-full flex justify-end items-end;
+}
+.container .calculator {
+  @apply grid grid-cols-4 gap-5 w-full items-center justify-center text-5xl bg-black p-5 xl:rounded-b-2xl h-[70%];
+}
+
+.container .calculator .box {
+  @apply flex justify-center items-center col-span-1 cursor-pointer w-full h-full aspect-square mx-auto my-auto;
+}
+
+.container .calculator .box .option {
+  @apply bg-[#a9a9a9] rounded-full h-full w-full text-black flex justify-center items-center hover:bg-[#c6c6c6];
+}
+
+.container .calculator .box .operation {
+  @apply bg-[#f19d3f] rounded-full h-full w-full text-white flex justify-center items-center hover:bg-[#f1b63f];
+}
+
+.container .calculator .box .number {
+  @apply bg-[#393939] rounded-full h-full w-full text-white flex justify-center items-center hover:bg-[#5a5a5a];
+  transition: background-color 0.1s;
+}
+
+.container .calculator .box .number.hovered {
+  background-color: #5a5a5a;
+}
+
+.container .calculator .box .operation.active {
+  @apply bg-[white] text-[#f1b63f];
+}
+.copy-text {
+  position: fixed;
+  top: -50px; /* Başlangıçta ekranın dışında */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #5a5a5a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  opacity: 0;
+  visibility: hidden;
+  transition: top 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.copy-text.show {
+  top: 20px; /* Gösterildiğinde yukarıdan aşağı kay */
+  opacity: 1;
+  visibility: visible;
+}
